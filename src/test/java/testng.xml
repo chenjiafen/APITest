@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suite">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
+    <test verbose="1" name="Welab 测试">
+        <classes>
+            <class name="cn.crazyapi.testcases.Wolaiddai"/>
+        </classes>
+    </test> <!-- Default test -->
+
+    <test verbose="1" name="天虹测试报告">
+        <classes>
+            <class name="cn.crazyapi.tianhongtestcase.lizhitestcase.MemberLogin"/>
+            <class name="cn.crazyapi.tianhongtestcase.lizhitestcase.SendSms"/>
+        </classes>
+    </test>
+</suite>
