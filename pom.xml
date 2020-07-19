@@ -110,8 +110,9 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.5.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -132,25 +133,13 @@
                         <!--配置拦截器-->
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <properties>
+                    <systemProperties>
                         <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
+                            <!--配置allure结果存储路径-->
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
                         </property>
-                    </properties>
-                    <!-- 使allure-results在target文件夹下（很重要） -->
-                    <workingDirectory>target/</workingDirectory>
-
-                    <!--<systemProperties>-->
-                    <!--<property>-->
-                    <!--&lt;!&ndash;配置allure结果存储路径&ndash;&gt;-->
-                    <!--<name>allure.result.directory</name>-->
-                    <!--<value>${project.build.directory}/allure-results</value>-->
-                    <!--</property>-->
-                    <!--</systemProperties>-->
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <!--aspectjweaver mavne坐标-->
