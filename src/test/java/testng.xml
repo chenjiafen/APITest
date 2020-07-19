@@ -10,10 +10,10 @@
         </classes>
     </test> <!-- Default test -->
 
-    <test verbose="1" name="天虹测试报告">
+    <test verbose="1" name="永旺测试项目">
         <classes>
-            <class name="cn.crazyapi.tianhongtestcase.lizhitestcase.MemberLogin"/>
-            <class name="cn.crazyapi.tianhongtestcase.lizhitestcase.SendSms"/>
+            <class name="cn.crazyapi.tianhongtestcase.yongwangtestcase.MemberLogin"/>
+            <class name="cn.crazyapi.tianhongtestcase.yongwangtestcase.SendSms"/>
         </classes>
     </test>
 </suite>

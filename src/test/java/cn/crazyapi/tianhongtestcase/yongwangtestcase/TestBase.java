@@ -1,18 +1,17 @@
-package cn.crazyapi.tianhongtestcase.lizhitestcase;
+package cn.crazyapi.tianhongtestcase.yongwangtestcase;
 
 import cn.crazyapi.http.HttpRequest;
 import cn.crazyapi.util.ExcelUtil;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
 
-@Listeners()
 public class TestBase {
     HttpRequest request;
+    Logger log = Logger.getLogger(SendSms.class.getName());
 
     public TestBase() {
         this.request = setHeader();
@@ -52,11 +51,4 @@ public class TestBase {
         String fileName = this.getClass().getClassLoader().getResource("log4j.xml").getPath();
         DOMConfigurator.configure(fileName);
     }
-
-//        @BeforeClass
-//    public void BeforeClass() {
-//        String fileName = this.getClass().getClassLoader().getResource("log4j.properties").getPath();
-//        DOMConfigurator.configure(fileName);
-//    }
-
 }

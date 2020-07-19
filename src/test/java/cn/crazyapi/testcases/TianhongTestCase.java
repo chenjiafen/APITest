@@ -62,7 +62,7 @@ public class TianhongTestCase {
                 "}";
 
 
-        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL)
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_SIT)
                 .path(Constans.Login_UR)
                 .contentType("application/json").data(parm).send();
 
@@ -83,7 +83,7 @@ public class TianhongTestCase {
         map.put("mobile", mobile);
         map.put("smsTemplateType", "4");
         String basicInfoJsonStr = JSON.toJSONString(map);
-        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL)
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_SIT)
                 .path(Constans.SendSms_URL)
                 .data(basicInfoJsonStr).send();
         System.out.println(reqs.statusLine());

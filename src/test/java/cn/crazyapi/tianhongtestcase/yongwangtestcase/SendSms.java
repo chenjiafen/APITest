@@ -1,4 +1,4 @@
-package cn.crazyapi.tianhongtestcase.lizhitestcase;
+package cn.crazyapi.tianhongtestcase.yongwangtestcase;
 
 import cn.crazyapi.Constans.Constans;
 import cn.crazyapi.common.ResultEnum;
@@ -7,27 +7,26 @@ import cn.crazyapi.http.HttpResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 //import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class SendSms extends TestBase {
     //    Logger logger = LoggerFactory.getLogger(getClass());
-    Logger log = Logger.getLogger(SendSms.class.getName());
 
     @Test(dataProvider = "sendDatas")
+    @Description("发送短信消息")
     public void testSend(String mobile) {
         Map<String, Object> map = new HashMap<>();
         map.put("appid", "app");
         map.put("mobile", mobile);
         map.put("smsTemplateType", "4");
         String basicInfoJsonStr = JSON.toJSONString(map);
-        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL)
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_DIV)
                 .path(Constans.SendSms_URL)
                 .data(basicInfoJsonStr).send();
         String reponseResult = reqs.body();

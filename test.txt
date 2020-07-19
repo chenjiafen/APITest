@@ -5,3 +5,5 @@ allure generate allure-results -o allure 测试结果
 $ mvn clean test
 $ mvn site
 $ mvn jetty:run
+
+mvn io.qameta.allure:allure-maven:serve
