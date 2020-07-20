@@ -47,7 +47,7 @@ public class test002 {
     public  void test01(){
         String fileName = this.getClass().getClassLoader().getResource("tianhong.xlsx").getPath();//获取文件路径
         String fileName1 = this.getClass().getClassLoader().getResource("log4j.xml").getPath();//获取文件路径
-        System.out.println(fileName1);
+        System.out.println(fileName);
     }
 
 }

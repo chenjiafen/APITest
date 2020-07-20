@@ -6,10 +6,9 @@
     </listeners>
     <test verbose="1" name="Welab 测试">
         <classes>
-            <class name="cn.crazyapi.testcases.Wolaiddai"/>
+            <class name="cn.crazyapi.wolaidaitestcast.Wolaiddai"/>
         </classes>
-    </test> <!-- Default test -->
-
+    </test>
     <test verbose="1" name="永旺测试项目">
         <classes>
             <class name="cn.crazyapi.tianhongtestcase.yongwangtestcase.MemberLogin"/>

@@ -77,10 +77,11 @@ public class MemberLogin extends TestBase {
         String reponseResult = reqs.body();
         JSONObject jsonResult = JSONObject.parseObject(reponseResult);
         String message = jsonResult.getString("message");
-        log.info("jsonResult===>>"+jsonResult);
+        log.info("jsonResult===>>" + jsonResult);
         Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
 
     }
+
     @DataProvider(name = "MyInfoDatas")
     public Object[][] MyInfoDatas() {
         Object[][] datas = {
@@ -88,6 +89,7 @@ public class MemberLogin extends TestBase {
         };
         return datas;
     }
+
     @DataProvider
     public Object[][] loginDatas() {
         Object[][] datas = {

@@ -34,7 +34,8 @@ public class TestBase {
 
     @DataProvider
     public Object[][] getData(Method method) throws Exception {
-        ExcelUtil excel = new ExcelUtil("C:/Users/LXG/Desktop/liecai.xlsx");
+        String fileName = this.getClass().getClassLoader().getResource("tianhong,xlsx").getPath();
+        ExcelUtil excel = new ExcelUtil(fileName);
         Object[][] result = null;
         if (method.getName().equals("test001_login")) {
             result = excel.getTestData("login");
