@@ -60,6 +60,7 @@ public class CrmTest extends TestBase {
         }
 
     }
+
     @Test(dataProvider = "MyInfoDatas")
     public void TestMyInfo(String storeCode, String code) {
         Map<String, Object> map = new HashMap<>();
@@ -72,7 +73,7 @@ public class CrmTest extends TestBase {
         String reponseResult = reqs.body();
         JSONObject jsonResult = JSONObject.parseObject(reponseResult);
         String message = jsonResult.getString("message");
-         log.info("jsonResult===>>"+jsonResult);
+        log.info("jsonResult===>>" + jsonResult);
         Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
 
     }

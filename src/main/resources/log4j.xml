@@ -18,7 +18,7 @@
             <param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
-            <param name="LevelMin" value="INFO"/>
+            <param name="LevelMin" value="valueINFO"/>
             <param name="LevelMax" value="INFO"/>
         </filter>
     </appender>

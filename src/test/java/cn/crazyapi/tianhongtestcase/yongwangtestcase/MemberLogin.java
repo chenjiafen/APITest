@@ -41,21 +41,21 @@ public class MemberLogin extends TestBase {
                 "\"longitude\": \"120.397783\",\n" +
                 "password: \"" + password + "\",\n" +
                 "\"username\": \"" + username + "\"\n" + "}";
+
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_DIV)
+                .path(Constans.Login_UR)
+                .contentType("application/json").data(parm).send();
+        log.info("请求头状态码" + reqs.statusLine());
+        String reponseResult = reqs.body();
+        JSONObject jsonResult = JSONObject.parseObject(reponseResult);
+        String message = jsonResult.getString("message");
+        token = jsonResult.getJSONObject("data").getString("token");
+        if (token == null) {
+            log.info("登录失败");
+        }
+        log.info("请求头状态码" + reqs.statusLine() + "=======" + "响应体" + jsonResult + "======" + "message" + message + "====" + "token" + token);
+
         try {
-            HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_DIV)
-                    .path(Constans.Login_UR)
-                    .contentType("application/json").data(parm).send();
-            log.info("请求头状态码" + reqs.statusLine());
-            String reponseResult = reqs.body();
-            JSONObject jsonResult = JSONObject.parseObject(reponseResult);
-            String message = jsonResult.getString("message");
-            token = jsonResult.getJSONObject("data").getString("token");
-            if (token == null && token == " ") {
-                log.info("登录失败");
-            }
-            log.info("请求头状态码" + reqs.statusLine() + "=======" + "响应体" + jsonResult + "======" + "message" + message + "====" + "token" + token);
-
-
             Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
         } catch (Exception e) {
             e.printStackTrace();

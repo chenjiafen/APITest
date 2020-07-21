@@ -135,20 +135,11 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <!--<properties>-->
-                        <!--<property>-->
-                            <!--<name>usedefaultlisteners</name>-->
-                            <!--<value>false</value>-->
-                        <!--</property>-->
-                    <!--</properties>-->
-                    <!--&lt;!&ndash; 使allure-results在target文件夹下（很重要） &ndash;&gt;-->
-                    <!--<workingDirectory>target/</workingDirectory>-->
-
                     <systemProperties>
                         <property>
-                            <!--配置allure结果存储路径-->
+                            <!--配置allure报告结果存储路径-->
                             <name>allure.result.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
+                            <value>${project.build.directory}/allure-report</value>
                         </property>
                     </systemProperties>
                 </configuration>
