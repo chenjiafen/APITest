@@ -133,24 +133,24 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                    </properties>
-                    <!-- 使allure-results在target文件夹下（很重要） -->
-                    <workingDirectory>target/</workingDirectory>
+                    <!--<properties>-->
+                        <!--<property>-->
+                            <!--<name>usedefaultlisteners</name>-->
+                            <!--<value>false</value>-->
+                        <!--</property>-->
+                    <!--</properties>-->
+                    <!--&lt;!&ndash; 使allure-results在target文件夹下（很重要） &ndash;&gt;-->
+                    <!--<workingDirectory>target/</workingDirectory>-->
 
-                    <!--<systemProperties>-->
-                    <!--<property>-->
-                    <!--&lt;!&ndash;配置allure结果存储路径&ndash;&gt;-->
-                    <!--<name>allure.result.directory</name>-->
-                    <!--<value>${project.build.directory}/allure-results</value>-->
-                    <!--</property>-->
-                    <!--</systemProperties>-->
+                    <systemProperties>
+                        <property>
+                            <!--配置allure结果存储路径-->
+                            <name>allure.result.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <!--aspectjweaver mavne坐标-->

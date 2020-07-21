@@ -2,7 +2,7 @@ package cn.crazyapi.common;
 
 public enum ResultEnum {
     SUCCESS(0, "执行成功！"),
-    SUCCESS_MESSAGE(200,"验证码已发送"),
+    SUCCESS_MESSAGE(200, "验证码已发送"),
     FAIL(-99, "失败"),
     UNKONW_ERROR(-1, "未知错误"),
     MOBILEPARAM_ERROR(-2, "手机号参数为空"),
@@ -54,10 +54,5 @@ public enum ResultEnum {
         return msg;
     }
 
-    public static void main(String[] args) {
-//        System.out.println(ResultEnum.SUCCESS.getMsg()+"====="+ ResultEnum.UPLOAD_SUCCESS);
-//        System.out.println(ResultEnum.SUCCESS.getCode()+"====="+ ResultEnum.SUCCESS.getMsg());
-        System.out.println(ResultEnum.SUCCESS.getMsg());
-    }
 
 }
