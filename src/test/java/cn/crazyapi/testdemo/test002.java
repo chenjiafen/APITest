@@ -1,4 +1,4 @@
-package cn.crazyapi.testcases;
+package cn.crazyapi.testdemo;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

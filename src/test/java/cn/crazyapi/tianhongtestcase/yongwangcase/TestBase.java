@@ -1,4 +1,4 @@
-package cn.crazyapi.tianhongtestcase.yongwangtestcase;
+package cn.crazyapi.tianhongtestcase.yongwangcase;
 
 import cn.crazyapi.http.HttpRequest;
 import cn.crazyapi.util.ExcelUtil;
@@ -11,6 +11,16 @@ import java.util.logging.Logger;
 
 public class TestBase {
     HttpRequest request;
+    private  String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     Logger log = Logger.getLogger(SendSms.class.getName());
 
     public TestBase() {

@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class TestBase {
     HttpRequest request = setHeader();;
-    Logger log = Logger.getLogger(SendSms.class.getName());
+    Logger log = Logger.getLogger(TestBase.class.getName());
     private String token;
 
     public String getToken() {

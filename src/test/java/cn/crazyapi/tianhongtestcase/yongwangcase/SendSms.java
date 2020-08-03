@@ -1,4 +1,4 @@
-package cn.crazyapi.tianhongtestcase.yongwangtestcase;
+package cn.crazyapi.tianhongtestcase.yongwangcase;
 
 import cn.crazyapi.Constans.Constans;
 import cn.crazyapi.common.ResultEnum;

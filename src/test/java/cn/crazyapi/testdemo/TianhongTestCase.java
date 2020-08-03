@@ -1,4 +1,4 @@
-package cn.crazyapi.testcases;
+package cn.crazyapi.testdemo;
 
 import cn.crazyapi.Constans.Constans;
 import cn.crazyapi.common.ResultEnum;
@@ -110,8 +110,7 @@ public class TianhongTestCase {
     @DataProvider
     public Object[][] loginDatas() {
         Object[][] datas = {
-                {"18566582390", "chen980985672"},
-                {"17688732107", "chen980985672"},
+                {"18566582390", "chen980985672"}
         };
         return datas;
     }

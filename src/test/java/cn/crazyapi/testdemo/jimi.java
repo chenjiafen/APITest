@@ -1,4 +1,4 @@
-package cn.crazyapi.testcases;
+package cn.crazyapi.testdemo;
 
 import java.nio.charset.Charset;
 

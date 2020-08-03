@@ -1,4 +1,4 @@
-package cn.crazyapi.tianhongtestcase.crmtestcase;
+package cn.crazyapi.tianhongtestcase.yongwangcase;
 
 import cn.crazyapi.Constans.Constans;
 import cn.crazyapi.common.ResultEnum;
@@ -7,6 +7,7 @@ import cn.crazyapi.http.HttpResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,10 +17,11 @@ import java.util.Map;
 
 /**
  * @Author chenjiafneg
- * @Date 2020/7/17 16:13
+ * @Date 2020/7/15 11:38
  * @Version 1.0
  */
-public class CrmTest extends TestBase {
+public class MemberLogin extends TestBase {
+
     String token;
 
     @Test(dataProvider = "loginDatas")
@@ -39,25 +41,27 @@ public class CrmTest extends TestBase {
                 "\"longitude\": \"120.397783\",\n" +
                 "password: \"" + password + "\",\n" +
                 "\"username\": \"" + username + "\"\n" + "}";
-        try {
-            HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_SIT)
-                    .path(Constans.Login_UR)
-                    .contentType("application/json").data(parm).send();
-            log.info("请求头状态码" + reqs.statusLine());
-            String reponseResult = reqs.body();
-            JSONObject jsonResult = JSONObject.parseObject(reponseResult);
-            String message = jsonResult.getString("message");
-            token = jsonResult.getJSONObject("data").getString("token");
-            if (token == null && token == " ") {
-                log.info("登录失败");
-            }
-            log.info("请求头状态码" + reqs.statusLine() + "=======" + "响应体" + jsonResult + "======" + "message" + message + "====" + "token" + token);
-            Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
 
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_DIV)
+                .path(Constans.Login_UR)
+                .contentType("application/json").data(parm).send();
+        log.info("请求头状态码" + reqs.statusLine());
+        String reponseResult = reqs.body();
+        JSONObject jsonResult = JSONObject.parseObject(reponseResult);
+        String message = jsonResult.getString("message");
+        token = jsonResult.getJSONObject("data").getString("token");
+        if (token == null) {
+            log.info("登录失败");
+        }
+        log.info("请求头状态码" + reqs.statusLine() + "=======" + "响应体" + jsonResult + "======" + "message" + message + "====" + "token" + token);
+
+        try {
+            Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
         } catch (Exception e) {
             e.printStackTrace();
-            log.info("Error_Message:" + e.getMessage());
+            log.info("Error_Message" + e.getMessage());
         }
+
 
     }
 
@@ -67,7 +71,7 @@ public class CrmTest extends TestBase {
         map.put("storeCode", storeCode);
         map.put("code", code);
         String parm = JSON.toJSONString(map);
-        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_SIT).header("x-http-token", token)
+        HttpResponse reqs = request.method(HttpMethod.POST).host(Constans.Base_URL_DIV)
                 .path(Constans.MyInfo_URL)
                 .contentType("application/json").data(parm).send();
         String reponseResult = reqs.body();
@@ -78,7 +82,15 @@ public class CrmTest extends TestBase {
 
     }
 
-    @DataProvider(name = "loginDatas")
+    @DataProvider(name = "MyInfoDatas")
+    public Object[][] MyInfoDatas() {
+        Object[][] datas = {
+                {"storeCode", "0001"}
+        };
+        return datas;
+    }
+
+    @DataProvider
     public Object[][] loginDatas() {
         Object[][] datas = {
                 {"18566582390", "chen980985672"},
@@ -87,11 +99,4 @@ public class CrmTest extends TestBase {
         return datas;
     }
 
-    @DataProvider(name = "MyInfoDatas")
-    public Object[][] MyInfoDatas() {
-        Object[][] datas = {
-                {"storeCode", "0001"}
-        };
-        return datas;
-    }
 }
