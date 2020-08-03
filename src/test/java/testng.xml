@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="suite">
-    <listeners>
-        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
-    </listeners>
-    <test verbose="1" name="Welab 测试">
+    <!--<test verbose="1" name="永旺测试项目">-->
+        <!--<classes>-->
+            <!--<class name="cn.crazyapi.tianhongtestcase.yongwangcase.MemberLogin"/>-->
+            <!--<class name="cn.crazyapi.tianhongtestcase.yongwangcase.SendSms"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+    <test verbose="1" name="天虹项目">
         <classes>
-            <class name="cn.crazyapi.wolaidaitestcast.Wolaiddai"/>
-        </classes>
-    </test>
-    <test verbose="1" name="永旺测试项目">
-        <classes>
-            <class name="cn.crazyapi.tianhongtestcase.yongwangtestcase.MemberLogin"/>
-            <class name="cn.crazyapi.tianhongtestcase.yongwangtestcase.SendSms"/>
+            <class name="cn.crazyapi.tianhongtestcase.rainbowcntcase.LoginTest"/>
         </classes>
     </test>
 </suite>
