@@ -80,11 +80,11 @@ public class LoginTest extends TestBase {
         JSONObject jsonResult = JSONObject.parseObject(body);
         String s=jsonResult.getString("message");
         log.info("响应体："+body+"====>"+s);
-        Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), s);
+        Assert.assertEquals(ResultEnum.SAVE_FAIL.getMsg(), s);
 
     }
 
-    @Test
+    @Test(dependsOnMethods = "LoginTest")
     public void audit(){
         HttpRequest request = setHeader();
         String parm="{\n" +
@@ -94,6 +94,11 @@ public class LoginTest extends TestBase {
                 "}";
         HttpRequest req = request.method(HttpMethod.POST).host(RainbowcnCrm.Base_URL_SIT).path(RainbowcnCrm.Audit_URL)
                 .contentType("application/json; charset=utf-8").data(parm);
+        HttpResponse response= req.send();
+        String body = response.body();
+        JSONObject jsonResult = JSONObject.parseObject(body);
+        String message=jsonResult.getString("message");
+        log.info("响应体："+body+"====>"+message);
+        Assert.assertEquals(ResultEnum.SUCCESS.getMsg(), message);
     }
-
 }

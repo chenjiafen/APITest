@@ -1,7 +1,7 @@
 package cn.crazyapi.common;
 
 public enum ResultEnum {
-    SUCCESS(0, "执行成功！"),
+    SUCCESS(0, "操作成功！"),
     SUCCESS_MESSAGE(200, "验证码已发送"),
     FAIL(-99, "失败"),
     UNKONW_ERROR(-1, "未知错误"),
@@ -35,6 +35,7 @@ public enum ResultEnum {
 
     UPLOAD_SUCCESS(0, "上传成功"),
     UPLOAD_FAIL(400, "上传失败"),
+    SAVE_FAIL(400, "保存失败"),
 
     RUN_FAIL_NO_CASE(400, "无可运行的case");
     private Integer code;
